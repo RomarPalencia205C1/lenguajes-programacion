@@ -1,0 +1,10 @@
+# Ignorar el archivo de base de datos local
+tasks.json
+
+# Ignorar los binarios compilados (por si usas go build)
+task-tracker
+task-tracker.exe
+
+# Ignorar carpetas ocultas del sistema operativo (opcional pero recomendado)
+.DS_Store
+Thumbs.db

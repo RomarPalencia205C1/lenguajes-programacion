@@ -1,0 +1,23 @@
+services:
+  mc-server:
+    image: itzg/minecraft-server
+    container_name: minecraft-server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    ports:
+      - "25565:25565" # Puerto estándar de Minecraft
+    environment:
+      EULA: "${EULA_ACCEPT}"
+      VERSION: "${MC_VERSION}"
+      TYPE: "${SERVER_TYPE}"
+      MEMORY: "${MEMORY_LIMIT}"
+      # OPS: "${ADMIN_USER}"
+      MOTD: "Servidor de Minecraft en Docker"
+      ONLINE_MODE: "FALSE"
+      CREATE_CONSOLE_IN_PIPE: "true"
+      # Esta variable le dice a Docker que busque y descargue los mods automáticamente
+      MODRINTH_PROJECTS: "${MODS}"
+      MAX_TICK_TIME: "-1"
+    volumes:
+      - ./data:/data
